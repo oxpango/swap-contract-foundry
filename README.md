@@ -64,3 +64,11 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+查看 PRIVATE_KEY 对应的 sender 地址
+
+cast wallet address --private-key $PRIVATE_KEY
+
+测试阶段：继续使用 forge test 的分叉模式（vm.createSelectFork），因为它快速、免费且隔离，适合验证合约逻辑
+
+上链需求：如果需要真实链上交易，使用 cast send 或 forge script --broadcast，并在 BscScan 验证结果
