@@ -43,13 +43,9 @@ contract ERC20TransferTest is Test {
         console.log("Sender balance before:", senderBalanceBefore);
         console.log("Recipient balance before:", recipientBalanceBefore);
 
-        vm.startBroadcast(privateKey);
-
         // vm.prank(sender);
         bool success = token.transfer(recipient, amount);
         assertTrue(success, "Transfer failed");
-
-        vm.stopBroadcast();
 
         // 验证余额变化
         uint256 senderBalanceAfter = token.balanceOf(sender);
