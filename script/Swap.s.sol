@@ -39,9 +39,7 @@ contract SwapScript is Script {
             bnb.approve(swapAddress, 200000000000000000000000000);
             console.log("Approved swap contract to spend BNB tokens");
         } else {
-            console.log(
-                "Swap contract already has allowance to spend BNB tokens"
-            );
+            console.log("Swap contract already has allowance to spend BNB tokens");
         }
 
         aswapv2.swap(bnbAddress, usdtAddress, 1000000000000000000);

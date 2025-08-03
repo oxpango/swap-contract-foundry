@@ -13,18 +13,10 @@ contract ASwapV2 {
     // 1 1000000000000000000
 
     // swap function
-    function swap(
-        address _tokenIn,
-        address _tokenOut,
-        uint256 _amountIn
-    ) external {
+    function swap(address _tokenIn, address _tokenOut, uint256 _amountIn) external {
         require(_amountIn > 0, "Amount in must be greater than 0");
         // transfer the amount in tokens from msg.sender to this contract
-        bool success = IERC20(_tokenIn).transferFrom(
-            msg.sender,
-            address(this),
-            _amountIn
-        );
+        bool success = IERC20(_tokenIn).transferFrom(msg.sender, address(this), _amountIn);
         require(success, "TokenIn transfer failed");
 
         // by calling IERC20 approve you allow the uniswap contract to spend the tokens in this contract
@@ -35,8 +27,7 @@ contract ASwapV2 {
         path[0] = _tokenIn;
         path[1] = _tokenOut;
 
-        uint256[] memory amountsExpected = IUniswapV2Router(UNISWAP_V2_ROUTER)
-            .getAmountsOut(_amountIn, path);
+        uint256[] memory amountsExpected = IUniswapV2Router(UNISWAP_V2_ROUTER).getAmountsOut(_amountIn, path);
 
         uint256 _deadline = block.timestamp + 2 * 60;
 

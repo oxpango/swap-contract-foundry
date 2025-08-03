@@ -53,15 +53,7 @@ contract ERC20TransferTest is Test {
         console.log("Sender balance after:", senderBalanceAfter);
         console.log("Recipient balance after:", recipientBalanceAfter);
 
-        assertEq(
-            senderBalanceAfter,
-            senderBalanceBefore - amount,
-            "Sender balance incorrect"
-        );
-        assertEq(
-            recipientBalanceAfter,
-            recipientBalanceBefore + amount,
-            "Recipient balance incorrect"
-        );
+        assertEq(senderBalanceAfter, senderBalanceBefore - amount, "Sender balance incorrect");
+        assertEq(recipientBalanceAfter, recipientBalanceBefore + amount, "Recipient balance incorrect");
     }
 }
