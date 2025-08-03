@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "forge-std/Script.sol";
+import {Script, console} from "forge-std/Script.sol";
 
 interface IERC20 {
     function transfer(address to, uint256 amount) external returns (bool);
@@ -25,7 +25,10 @@ contract TransferScript is Script {
 
         vm.startBroadcast(privateKey);
 
-        IERC20(tokenAddress).transfer(recipient, amount);
+        bool succ = IERC20(tokenAddress).transfer(recipient, amount);
+        if (succ) {
+            console.log("transfer succ");
+        }
 
         vm.stopBroadcast();
     }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "forge-std/Test.sol";
+import {Test, console} from "forge-std/Test.sol";
 
 interface IERC20 {
     function transfer(address to, uint256 amount) external returns (bool);

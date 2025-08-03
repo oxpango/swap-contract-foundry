@@ -10,7 +10,7 @@ interface IUniswapV2Router {
         uint256 deadline
     ) external returns (uint256[] memory amounts);
 
-    function WETH() external pure returns (address);
+    // function WETH() external pure returns (address);
 
     function getAmountsOut(
         uint256 amountIn,

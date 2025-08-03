@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "forge-std/Script.sol";
+import {Script, console} from "forge-std/Script.sol";
 import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import {ASwapV2} from "../src/ASwapV2.sol";
 
@@ -39,14 +39,12 @@ contract SwapScript is Script {
             bnb.approve(swapAddress, 200000000000000000000000000);
             console.log("Approved swap contract to spend BNB tokens");
         } else {
-            console.log("Swap contract already has allowance to spend BNB tokens");
+            console.log(
+                "Swap contract already has allowance to spend BNB tokens"
+            );
         }
 
-        aswapv2.swap(
-            bnbAddress,
-            usdtAddress,
-            1000000000000000000
-        );
+        aswapv2.swap(bnbAddress, usdtAddress, 1000000000000000000);
         console.log("Swap executed: 1 BNB to USDT");
 
         vm.stopBroadcast();
