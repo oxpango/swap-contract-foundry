@@ -2,12 +2,18 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+solc = "0.8.28"          # 指定 Solidity 编译器版本
+auto_detect_solc = false # 禁用自动检测
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 
 
 [rpc_endpoints]
+eth-mainnet = "${ETH_RPC_URL}"
+bsc-mainnet = "${BSC_MAINNET_RPC_URL}"
 bsc-testnet = "${BSC_TESTNET_RPC_URL}"
 
 [etherscan]
+eth-mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 1 }
+bsc-mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 56 }
 bsc-testnet = { key = "${ETHERSCAN_API_KEY}", chain = 97 }
