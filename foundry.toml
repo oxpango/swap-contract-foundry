@@ -10,10 +10,12 @@ auto_detect_solc = false # 禁用自动检测
 
 [rpc_endpoints]
 eth-mainnet = "${ETH_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
 bsc-mainnet = "${BSC_MAINNET_RPC_URL}"
 bsc-testnet = "${BSC_TESTNET_RPC_URL}"
 
 [etherscan]
 eth-mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 1 }
+sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 11155111 }
 bsc-mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 56 }
 bsc-testnet = { key = "${ETHERSCAN_API_KEY}", chain = 97 }
